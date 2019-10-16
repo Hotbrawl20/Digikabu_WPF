@@ -1,0 +1,198 @@
+﻿<Window x:Class="DigikabuWPF.MenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DigikabuWPF"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:tb="http://www.hardcodet.net/taskbar" 
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="1190" WindowStyle="None" WindowStartupLocation="CenterScreen" Foreground="White" MouseDown="Window_MouseDown" Background="LightGray" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <Storyboard x:Key="MenuOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="60"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="210"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="MenuClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="200"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="60"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
+
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
+
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <TabControl x:Name="TAB" HorizontalAlignment="Left" Height="526" Margin="60,33,-12,-17" VerticalAlignment="Top" Width="1144" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{x:Null}" BorderThickness="0">
+
+            <!--Termine-->
+            <TabItem Header="Termine">
+                <Grid Background="LightGray"  Margin="-31,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="119*"/>
+                        <RowDefinition Height="131*"/>
+                    </Grid.RowDefinitions>
+
+
+                </Grid>
+            </TabItem>
+
+            <!--Wochenstundenplan-->
+            <TabItem Header="Wochenstundenplan">
+                <Grid Background="LightGray" Margin="-31,0,0,0">
+
+                </Grid>
+            </TabItem>
+            
+            <!--Schulaufgabenplan-->
+            <TabItem Header="Schulaufgabenplan">
+                <Grid Background="LightGray"  Margin="-31,0,0,0">
+
+
+                </Grid>
+            </TabItem>
+            
+            <!--Speiseplan-->
+            <TabItem Header="Speiseplan">
+                <Grid Background="LightGray" Margin="-31,0,0,0">
+
+                </Grid>
+            </TabItem>
+            
+            <!--Entschuldigung-->
+            <TabItem Header="Entschuldigung">
+                <Grid Background="LightGray"  Margin="-31,0,0,0">
+
+
+                </Grid>
+            </TabItem>
+            
+            <!--Fehlzeiten-->
+            <TabItem Header="Fehlzeiten">
+                <Grid Background="LightGray" Margin="-31,0,0,0">
+
+                </Grid>
+            </TabItem>
+            
+            <!--Einstellungen-->
+            <TabItem Header="Einstellungen">
+                <Grid Background="LightGray" Margin="-31,0,0,0">
+
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+        <Grid Height="72" VerticalAlignment="Top" Margin="0,-2,0,0">
+            <Grid.Background>
+
+                <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                    <GradientStop Color="#2b27a3" Offset="0"/>
+                    <GradientStop Color="#2f42bd" Offset="1"/>
+                    <GradientStop Color="#2b27a3" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <TextBlock x:Name="Fenster" Text="Digikabu - Termine" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22"/>
+            <TextBlock x:Name="User" Width="300" Text="[Schüler]" VerticalAlignment="Center" FontSize="18" Margin="166,25,724,23"/>
+
+
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,25,100,23">
+                <TextBlock Text="Klasse: " VerticalAlignment="Center" FontSize="18"/>
+                <TextBlock x:Name="Klasse" Text="[Klasse]" VerticalAlignment="Center" FontSize="18"/>
+            </StackPanel>
+            <TextBlock Width="150" Text="Schüler: " VerticalAlignment="Center" FontSize="18" Margin="81,25,959,23"/>
+        </Grid>
+        <Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#1d92c4" Offset="1"/>
+                    <GradientStop Color="#2f42bd" Offset="0"/>
+                    <GradientStop Color="#2b27a3" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <StackPanel>
+                <Grid Height="70">
+                    <Button x:Name="ButtonCloseMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,0,0" Visibility="Collapsed" Click="ButtonCloseMenu_Click">
+                        <materialDesign:PackIcon Foreground="White" Kind="ArrowLeft" Height="25" Width="25" />
+                    </Button>
+                    <Button x:Name="ButtonOpenMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,0,0" Click="ButtonOpenMenu_Click">
+                        <materialDesign:PackIcon Foreground="White" Kind="HamburgerMenu" Height="25" Width="25"/>
+                    </Button>
+                </Grid>
+                <ListView  Foreground="White"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" PreviewMouseLeftButtonUp="listView_Click">
+
+                    <!--Termin-->
+                    <ListViewItem Height="60" x:Name="Termine">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="CalendarClock" Margin="10" Width="25" Height="25" VerticalAlignment="Center"/>
+
+
+                            <TextBlock Text="Termine" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <!--Wochenstundenplan-->
+                    <ListViewItem Height="60" x:Name="Wochenstundenplan">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon Margin="10" Kind="Abc" Width="25" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Wochenstundenplan" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <!--Schulaufgabenplan-->
+                    <ListViewItem Height="60" x:Name="Schulaufgabenplan">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon Margin="10" Kind="Calendar" Width="25" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Schulaufgabenplan" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <!--Speiseplan-->
+                    <ListViewItem Height="60" x:Name="Speiseplan">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon  Margin="10" Kind="Food" Width="25" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Speiseplan" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <!--Entschuldigung-->
+                    <ListViewItem Height="60" x:Name="Entschuldigung">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon  Margin="10" Kind="Doctor" Width="25" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Entschuldigung" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <!--Fehlzeiten-->
+                    <ListViewItem Height="60" x:Name="Fehlzeiten">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon  Margin="10" Kind="abc" Width="25" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Fehlzeiten" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <!--Einstellungen-->
+                    <ListViewItem Height="60" x:Name="Einstellungen">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon  Margin="10" Kind="Settings" Width="25" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Einstellungen" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                </ListView>
+
+            </StackPanel>
+        </Grid>
+
+        <TextBlock HorizontalAlignment="Left" Margin="1164,12,0,0" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="1160,11,0,0" VerticalAlignment="Top" Width="18" Background="{x:Null}" BorderBrush="{x:Null}" Height="25" Click="ExitApp"/>
+        <TextBlock HorizontalAlignment="Left" Margin="1144,11,0,0" TextWrapping="Wrap" Text="__" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="1140,11,0,0" VerticalAlignment="Top" Width="18" Background="{x:Null}" BorderBrush="{x:Null}" Height="25" Click="MinimizeApp"/>
+    </Grid>
+
+</Window>
+

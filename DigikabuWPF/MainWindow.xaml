@@ -1,0 +1,42 @@
+﻿<Window x:Class="DigikabuWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DigikabuWPF"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Login" Height="450" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseDown="Window_MouseDown_1">
+    <Grid Background="LightGray">
+        <Rectangle Height="300" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#1d92c4" Offset="1"/>
+                    <GradientStop Color="#2f42bd" Offset="0"/>
+                    <GradientStop Color="#2b27a3" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock Text="Digikabu" FontSize="28" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="75,57,75,0"/>
+        <Rectangle Width="280" Height="240" Fill="Gainsboro" VerticalAlignment="Bottom" Margin="35,0,35,61" RadiusY="24.722" RadiusX="24.722">
+            <Rectangle.Effect>
+                <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
+            </Rectangle.Effect>
+
+        </Rectangle>
+        <Grid Width="280" Height="240" VerticalAlignment="Bottom" Margin="0,100">
+            <TextBlock Text="LOGIN" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="114,56,114,0" Foreground="#FF636363" FontSize="18"/>
+            <StackPanel VerticalAlignment="Center" Margin="10,92,10,20">
+                <TextBox x:Name="Nutzer" materialDesign:HintAssist.Hint="NUTZERNAME" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,10" FontSize="18" Foreground="Black" SelectionBrush="#FFD70000" CaretBrush="#FFF32121"/>
+                <PasswordBox x:Name="PW" materialDesign:HintAssist.Hint="PASSWORT" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,10" FontSize="18" SelectionBrush="#FFD70000" CaretBrush="#FFF32121"/>
+
+            </StackPanel>
+        </Grid>
+        <Button VerticalAlignment="Bottom" Margin="100,0,100,46" Width="150" Content="LOGIN" BorderBrush="#1d92c4" Background="#1d92c4" Click="Button_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="328,8,0,0" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="324,7,0,0" VerticalAlignment="Top" Width="18" Background="{x:Null}" BorderBrush="{x:Null}" Height="25" Click="ExitApp"/>
+
+    </Grid>
+</Window>
+
+
